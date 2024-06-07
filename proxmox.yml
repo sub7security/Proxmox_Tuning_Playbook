@@ -1,35 +1,36 @@
+---
 - name: Proxmox Playbook
   hosts: localhost
-  gather_facts: yes      
+  gather_facts: yes
   tasks:
-       - block:
-           - import_tasks: roles/prep/_main.yml   
-             tags: ["proxmox", "prep"]   
-           - import_tasks: roles/bash/_main.yml   
-             tags: ["proxmox", "bashrc"]       
-           - import_tasks: roles/entropy/_main.yml   
-             tags: ["proxmox", "entropy"]  
-           - import_tasks: roles/journald/_main.yml   
-             tags: ["proxmox", "journald"]    
-           - import_tasks: roles/ksm/_main.yml   
-             tags: ["proxmox", "ksm"]              
-           - import_tasks: roles/log_rotate/_main.yml   
-             tags: ["proxmox", "logrotate"]                   
-           - import_tasks: roles/tuning/_main.yml
-             tags: ["proxmox", "tuning"]  
-           - import_tasks: roles/zfs/_main.yml   
-             tags: ["proxmox", "zfs"]       
-           - import_tasks: roles/sub_banner/_main.yml
-             tags: ["proxmox", "banner"]            
-           - import_tasks: roles/fail2ban/_main.yml
-             tags: ["proxmox", "fail2ban"]         
-           - import_tasks: roles/vzdump/_main.yml
-             tags: ["proxmox", "vzdump"]       
-           - import_tasks: roles/lynis/_main.yml
-             tags: ["proxmox", "lynis"]  
-           - import_tasks: roles/motd/_main.yml
-             tags: ["proxmox"]     
-       rescue:
-         - name: Handle failure
-           debug:
-             msg: "Task failed but playbook continues"
+    - block:
+        - import_tasks: roles/prep/_main.yml
+          tags: ["proxmox", "prep"]
+        - import_tasks: roles/bash/_main.yml
+          tags: ["proxmox", "bashrc"]
+        - import_tasks: roles/entropy/_main.yml
+          tags: ["proxmox", "entropy"]
+        - import_tasks: roles/journald/_main.yml
+          tags: ["proxmox", "journald"]
+        - import_tasks: roles/ksm/_main.yml
+          tags: ["proxmox", "ksm"]
+        - import_tasks: roles/log_rotate/_main.yml
+          tags: ["proxmox", "logrotate"]
+        - import_tasks: roles/tuning/_main.yml
+          tags: ["proxmox", "tuning"]
+        - import_tasks: roles/zfs/_main.yml
+          tags: ["proxmox", "zfs"]
+        - import_tasks: roles/sub_banner/_main.yml
+          tags: ["proxmox", "banner"]
+        - import_tasks: roles/fail2ban/_main.yml
+          tags: ["proxmox", "fail2ban"]
+        - import_tasks: roles/vzdump/_main.yml
+          tags: ["proxmox", "vzdump"]
+        - import_tasks: roles/lynis/_main.yml
+          tags: ["proxmox", "lynis"]
+        - import_tasks: roles/motd/_main.yml
+          tags: ["proxmox"]
+      rescue:
+        - name: Handle failure
+          debug:
+            msg: "Task failed but playbook continues"
