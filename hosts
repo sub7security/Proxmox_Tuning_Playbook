@@ -1,2 +1,1 @@
-[prox]
-host1
+localhost ansible_connection=local
