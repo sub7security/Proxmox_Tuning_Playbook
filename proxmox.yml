@@ -6,30 +6,43 @@
     - block:
         - import_tasks: roles/prep/_main.yml
           tags: ["proxmox", "prep"]
+          ignore_errors: yes
         - import_tasks: roles/bash/_main.yml
           tags: ["proxmox", "bashrc"]
+          ignore_errors: yes
         - import_tasks: roles/entropy/_main.yml
           tags: ["proxmox", "entropy"]
+          ignore_errors: yes
         - import_tasks: roles/journald/_main.yml
           tags: ["proxmox", "journald"]
+          ignore_errors: yes
         - import_tasks: roles/ksm/_main.yml
           tags: ["proxmox", "ksm"]
+          ignore_errors: yes
         - import_tasks: roles/log_rotate/_main.yml
           tags: ["proxmox", "logrotate"]
+          ignore_errors: yes
         - import_tasks: roles/tuning/_main.yml
           tags: ["proxmox", "tuning"]
+          ignore_errors: yes
         - import_tasks: roles/zfs/_main.yml
           tags: ["proxmox", "zfs"]
+          ignore_errors: yes
         - import_tasks: roles/sub_banner/_main.yml
           tags: ["proxmox", "banner"]
+          ignore_errors: yes
         - import_tasks: roles/fail2ban/_main.yml
           tags: ["proxmox", "fail2ban"]
+          ignore_errors: yes
         - import_tasks: roles/vzdump/_main.yml
           tags: ["proxmox", "vzdump"]
+          ignore_errors: yes
         - import_tasks: roles/lynis/_main.yml
           tags: ["proxmox", "lynis"]
+          ignore_errors: yes
         - import_tasks: roles/motd/_main.yml
           tags: ["proxmox"]
+          ignore_errors: yes
       rescue:
         - name: Handle failure
           debug:
