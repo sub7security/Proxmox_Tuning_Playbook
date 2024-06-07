@@ -1,9 +1,4 @@
 ---
-
-  - name: Set the time zone 
-    community.general.timezone: 
-      name: '{{ timezone }}'
-    tags: ["proxmox", "timesyncd", "prep"]      
       
   - name: Remove Enterprise Repo
     apt_repository:
