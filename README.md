@@ -2,6 +2,16 @@
 
 Brcak-Zmaj Proxmox Optimization Playbook
 ==========
+
+How to Run
+--------
+login to the server
+
+`sudo ansible-playbook -i hosts proxmox.yml`
+
+then again
+
+`sudo ansible-playbook -i hosts proxmox.yml --skip-tags=skip`
                                               
 
 Overview
